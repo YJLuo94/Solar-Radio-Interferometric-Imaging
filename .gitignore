@@ -78,6 +78,11 @@ frames/
 local_data/
 workdir/
 
+# Ignore generated figure folders, but keep documentation figures
+figures/
+!docs/figures/
+!docs/figures/**
+
 # OS/editor files
 .DS_Store
 Thumbs.db
