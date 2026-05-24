@@ -1,10 +1,13 @@
 # Self-calibration
 
-This module contains scripts for optional solar-target self-calibration.
+This folder contains the modular MeerKAT solar target self-calibration workflow.
 
-Solar self-calibration is recommended as a manual, inspection-driven step. The user should inspect intermediate images, masks, calibration tables, and dynamic-range improvement before deciding whether to proceed to the next round.
+Recommended entry points:
 
-Suggested components:
+- `selfcal_pipeline.py` — high-level orchestration.
+- `do_selfcal.py` — run individual self-calibration rounds.
+- `prepare_selfcal.py` — split the seed MS.
+- `create_masks.py` — full-disk and peak-fraction masks.
+- `dr_check.py` — dynamic-range diagnostics.
 
-- `do_selfcal.py`: run one self-calibration round.
-- `create_masks.py`: create full-disk, active-region, or peak-based CLEAN masks.
+The default configuration in `config.py` follows the updated 2024-12-29 scan-4 workflow. Optional behavior from the earlier exploratory script can be enabled by editing `config.selfcal` in a demo or custom config file.

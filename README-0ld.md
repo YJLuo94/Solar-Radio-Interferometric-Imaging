@@ -8,9 +8,7 @@ The current structure is designed around MeerKAT solar data, but the `demo/` dir
 
 This repository follows a modular workflow for solar radio imaging spectroscopy. The CASA-based components are used for Measurement Set preparation, flagging, calibration, self-calibration, and imaging, while the Python-based components are used for post-processing, primary-beam correction, visualization, and science-product generation. The workflow starts from an input MeerKAT Measurement Set and a user-defined configuration file, and produces calibrated target Measurement Sets, FITS image cubes, movies, and dynamic spectra.
 
-<p align="center">
-  <img src="docs/figures/workflow_overview.png" alt="Workflow of the solar radio processing pipeline" width="850">
-</p>
+<img width="2560" height="1440" alt="Solar radio data processing workflow" src="https://github.com/user-attachments/assets/b658fd4c-4bff-4f53-ab25-30a5418f1c67" />
 
 <p align="center">
   <b>Figure 1.</b> Modular workflow of the solar radio processing pipeline. The workflow starts from an input Measurement Set and a user-defined configuration file, followed by data inspection, partitioning, initial flagging, cross-calibration, optional solar self-calibration, and science imaging. The final science products include calibrated target Measurement Sets, FITS image cubes, radio/EUV context movies, and dynamic spectra.
@@ -108,11 +106,6 @@ The commands above are intended as a workflow template. Individual observations 
 
 Large MeerKAT/VLA Measurement Sets, CASA image products, calibration tables, FITS cubes, movies, and intermediate data products should not be committed to this repository. Use the `.gitignore` file to keep large data products local.
 
-
-### Full-disk science imaging after self-calibration
-
-The repository also includes the final full-disk science-imaging workflow used after solar target self-calibration. This stage images selected time intervals and 16-channel frequency chunks in Stokes I/V, applies shifted-center katbeam and holography primary-beam corrections, and exports original, PB-corrected, and brightness-temperature FITS products. See `docs/full_disk_science_imaging.md` and `demo/run_full_disk_imaging_20241229_scan4.py`.
-
 ## Citation
 
 If you use this workflow or adapt scripts from this repository, please cite the associated solar radio processing paper or project, and cite this repository using the metadata in `CITATION.cff`.
@@ -120,39 +113,3 @@ If you use this workflow or adapt scripts from this repository, please cite the 
 ## License
 
 This project is released under the BSD 3-Clause License. See `LICENSE` for details.
-
-## Modular MeerKAT scan-4 workflow
-
-The first non-self-calibration MeerKAT scan-4 processing script has been refactored into the module layout used by this repository. The original CASA task order and major parameters are preserved, while the code is split into configuration, pre-processing, calibration, MS processing, imaging, and primary-beam correction modules. See `docs/legacy_scan4_mapping.md` for the mapping from the original one-file script to the modular version.
-
-To run the default workflow inside CASA from the repository root:
-
-```python
-execfile('process_main.py')
-```
-
-Before running, edit `config.py` to match the local MS path, working directory, fields, time ranges, frequency selection, and imaging settings.
-
-
-## Solar Target Self-calibration
-
-The `self_calibration/` module contains the MeerKAT solar target self-calibration workflow. It combines the event-specific updated workflow used for the 2024-12-29 flare with additional utilities from the earlier self-calibration script.
-
-Main capabilities include:
-
-- splitting a short seed MS for self-calibration solutions;
-- pre-self-calibration full-Sun imaging per frequency chunk;
-- full-disk and peak-fraction CLEAN mask generation;
-- per-SPW model imaging with `savemodel='modelcolumn'`;
-- per-SPW `gaincal` and `applycal` for multiple self-calibration rounds;
-- post-round imaging and frequency-panel plots;
-- dynamic-range diagnostics and improvement-factor plots;
-- optional application of all self-calibration tables to the full target MS.
-
-A standalone demo is available at:
-
-```bash
-execfile('demo/run_meerkat_selfcal_20241229_scan4.py')
-```
-
-The default `SelfCalConfig` in `config.py` follows the updated event-specific setup. Optional behaviors from the older script, such as peak-fraction masks and gain-table summary plots, can be enabled in the demo script or a custom config file.
