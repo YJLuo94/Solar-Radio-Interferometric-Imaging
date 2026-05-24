@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=64", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "solar-radio-processing"
+version = "0.1.0"
+description = "A modular CASA/Python workflow for solar radio interferometric data processing."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "BSD-3-Clause"}
+authors = [
+    {name = "Yingjie Luo"}
+]
+keywords = ["solar radio", "MeerKAT", "VLA", "CASA", "imaging spectroscopy"]
+dependencies = [
+    "numpy",
+    "scipy",
+    "matplotlib",
+    "astropy",
+    "sunpy",
+    "reproject",
+    "pandas",
+    "pyyaml",
+    "tqdm",
+]
+
+[project.urls]
+Homepage = "https://github.com/YOUR_USERNAME/solar-radio-processing"
+Repository = "https://github.com/YOUR_USERNAME/solar-radio-processing"
+
+[tool.setuptools]
+py-modules = ["config", "process_main"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

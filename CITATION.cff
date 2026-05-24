@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+title: "Solar Radio Processing"
+message: "If you use this workflow or adapt scripts from this repository, please cite the associated paper/project and this repository."
+type: software
+authors:
+  - family-names: Luo
+    given-names: Yingjie
+repository-code: "https://github.com/YOUR_USERNAME/solar-radio-processing"
+version: "0.1.0"
+date-released: "2026-05-24"
+license: "BSD-3-Clause"
+keywords:
+  - solar radio astronomy
+  - MeerKAT
+  - VLA
+  - CASA
+  - imaging spectroscopy
+  - self-calibration
+  - primary beam correction

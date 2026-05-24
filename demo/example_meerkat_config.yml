@@ -1,0 +1,61 @@
+project:
+  name: "example_meerkat_solar_observation"
+  telescope: "MeerKAT"
+  target: "Sun"
+  description: "Example configuration for MeerKAT solar imaging spectroscopy"
+
+paths:
+  input_ms: "/path/to/input.ms"
+  workdir: "/path/to/workdir"
+  output_dir: "/path/to/output"
+  beam_model: "/path/to/MeerKAT_Lband_beam_StokesIV.npz"
+
+observation:
+  date: "YYYY-MM-DD"
+  target_field: "Sun"
+  flux_calibrator: "J1939-6342"
+  gain_calibrator: "J1830-3602"
+  science_timeranges:
+    - "YYYY/MM/DD/hh:mm:ss~YYYY/MM/DD/hh:mm:ss"
+  selfcal_timerange: "YYYY/MM/DD/hh:mm:ss~YYYY/MM/DD/hh:mm:ss"
+
+frequency:
+  band: "L"
+  nchan_total: 4096
+  nchan_per_chunk: 32
+  start_chunk: 0
+  end_chunk: 127
+
+imaging:
+  imsize: [1024, 1024]
+  cell: "2.5arcsec"
+  stokes: "I"
+  weighting: "briggs"
+  robust: 0.0
+  niter: 10000
+  restoringbeam: ""
+
+self_calibration:
+  enabled: false
+  rounds:
+    - name: "r1"
+      calmode: "p"
+      minsnr: 3.0
+      niter: 1000
+      robust: 1.0
+      mask:
+        mode: "full_disk"
+        radius_arcsec: 1100
+
+primary_beam:
+  enabled: true
+  methods:
+    - "katbeam"
+    - "holography"
+  apply_cutoff: false
+  reference_center: "pointing_center"
+
+output:
+  make_fits_cube: true
+  make_movies: true
+  extract_dynamic_spectra: true

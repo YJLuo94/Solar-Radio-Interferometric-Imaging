@@ -1,0 +1,20 @@
+name: solar-radio-processing
+channels:
+  - conda-forge
+dependencies:
+  - python>=3.10
+  - numpy
+  - scipy
+  - matplotlib
+  - astropy
+  - sunpy
+  - reproject
+  - pandas
+  - pyyaml
+  - tqdm
+  - ipykernel
+  - jupyterlab
+  - pytest
+  - pip
+  - pip:
+      - katbeam

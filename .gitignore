@@ -1,0 +1,85 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Environments
+.env
+.venv/
+venv/
+env/
+conda-env/
+
+# CASA Measurement Sets and related products
+*.ms/
+*.MS/
+*.mms/
+*.MMS/
+*.flagversions/
+*.image/
+*.model/
+*.residual/
+*.psf/
+*.pb/
+*.pbcor/
+*.sumwt/
+*.mask/
+*.flux/
+*.tt0/
+*.tt1/
+*.alpha/
+*.last
+casa-*.log
+*.log
+
+# CASA calibration tables
+*.gcal/
+*.bcal/
+*.kcal/
+*.tcal/
+*.dcal/
+*.fcal/
+*.cal/
+*.tbl/
+*.table/
+
+# Large science products
+*.fits
+*.fit
+*.fts
+*.FITS
+*.npz
+*.npy
+*.h5
+*.hdf5
+*.zarr/
+*.mp4
+*.mov
+*.avi
+*.gif
+
+# Local output directories
+products/
+outputs/
+figures/
+movies/
+frames/
+local_data/
+workdir/
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
