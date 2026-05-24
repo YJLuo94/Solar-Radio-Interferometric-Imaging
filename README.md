@@ -8,9 +8,7 @@ The current structure is designed around MeerKAT solar data, but the `demo/` dir
 
 This repository follows a modular workflow for solar radio imaging spectroscopy. The CASA-based components are used for Measurement Set preparation, flagging, calibration, self-calibration, and imaging, while the Python-based components are used for post-processing, primary-beam correction, visualization, and science-product generation. The workflow starts from an input MeerKAT Measurement Set and a user-defined configuration file, and produces calibrated target Measurement Sets, FITS image cubes, movies, and dynamic spectra.
 
-<p align="center">
-  <img src="docs/figures/workflow_overview.png" alt="Workflow of the solar radio processing pipeline" width="850">
-</p>
+<img width="2560" height="1440" alt="Solar radio data processing workflow" src="https://github.com/user-attachments/assets/b658fd4c-4bff-4f53-ab25-30a5418f1c67" />
 
 <p align="center">
   <b>Figure 1.</b> Modular workflow of the solar radio processing pipeline. The workflow starts from an input Measurement Set and a user-defined configuration file, followed by data inspection, partitioning, initial flagging, cross-calibration, optional solar self-calibration, and science imaging. The final science products include calibrated target Measurement Sets, FITS image cubes, radio/EUV context movies, and dynamic spectra.
