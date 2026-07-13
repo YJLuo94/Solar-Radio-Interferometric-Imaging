@@ -121,9 +121,9 @@ If you use this workflow or adapt scripts from this repository, please cite the 
 
 This project is released under the BSD 3-Clause License. See `LICENSE` for details.
 
-## Modular MeerKAT scan-4 workflow
+## Modular MeerKAT workflow
 
-The first non-self-calibration MeerKAT scan-4 processing script has been refactored into the module layout used by this repository. The original CASA task order and major parameters are preserved, while the code is split into configuration, pre-processing, calibration, MS processing, imaging, and primary-beam correction modules. See `docs/legacy_scan4_mapping.md` for the mapping from the original one-file script to the modular version.
+The first non-self-calibration MeerKAT processing script has been refactored into the module layout used by this repository. The original CASA task order and major parameters are preserved, while the code is split into configuration, pre-processing, calibration, MS processing, imaging, and primary-beam correction modules. See `docs/legacy_scan4_mapping.md` for the mapping from the original one-file script to the modular version.
 
 To run the default workflow inside CASA from the repository root:
 
